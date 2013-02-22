@@ -11,12 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222040524) do
+ActiveRecord::Schema.define(:version => 20130222063434) do
 
   create_table "users", :id => false, :force => true do |t|
-    t.integer  "id",         :limit => 8
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.integer  "id",               :limit => 8
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "name"
   end
 
 end

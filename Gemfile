@@ -4,6 +4,7 @@ gem 'rails', '3.2.6'
 
 # koala is a good gem for accessing the Facebook graph (https://github.com/arsduo/koala)
 gem 'koala'
+gem 'omniauth-facebook'
 
 group :development, :test do
     gem 'sqlite3'
