@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :pictures
   attr_accessible :id
   set_primary_key :id
 

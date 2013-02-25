@@ -1,0 +1,23 @@
+<h1>Listing Pictures</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Link</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pictures.each do |picture| %>
+  <tr>
+    <td><%= picture.id %></td>
+    <td><%= picture.link %></td>
+    <td><%= link_to 'Show', picture %></td>
+    <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Picture', :controller => 'pictures', :action => 'new' %> | <%= link_to 'Home', :controller => 'users', :action => 'index' %>

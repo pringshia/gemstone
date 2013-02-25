@@ -4,6 +4,7 @@ Gemstone::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :users
+  resources :pictures
 
   root to: 'users#index'
 
