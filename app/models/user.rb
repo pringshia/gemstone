@@ -8,12 +8,12 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    where(auth.slice(:id)).first_or_initialize.tap do |user|
-      user.oauth_token = auth.credentials.token
-      user.name = auth.info.name
-      user.id = auth.uid
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+        where(:id => auth.uid).first_or_initialize.tap do |user|
+        user.oauth_token = auth.credentials.token
+        user.name = auth.info.name
+        user.id = auth.uid
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+        user.save!
     end
   end
 end
