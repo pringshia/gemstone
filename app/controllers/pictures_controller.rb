@@ -20,6 +20,8 @@ class PicturesController < ApplicationController
   end  
 
   def new
+    @graph = Koala::Facebook::API.new(User.find(session[:user_id]).oauth_token)
+    @albums = @graph.get_connections "me", "albums" 
     @picture = Picture.new
 
     respond_to do |format|

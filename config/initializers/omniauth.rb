@@ -1,5 +1,5 @@
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :facebook, "210880035720880", "bdb8663b6bed585f52b4d9da84583e34"
+    provider :facebook, Gemstone::Application::FACEBOOK_API_KEY , Gemstone::Application::FACEBOOK_APP_SECRET, {scope: "user_photos"}
 end
