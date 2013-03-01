@@ -21,7 +21,11 @@ class PicturesController < ApplicationController
 
   def new
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    @albums = @graph.get_connections "me", "albums" 
+    if (params[:album])
+      @pictures = @graph.get_connections params[:album], "photos"
+    else
+      @albums = @graph.get_connections "me", "albums" 
+    end
     @picture = Picture.new
 
     respond_to do |format|
@@ -31,7 +35,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = Picture.new(link: params[:link])
     user = User.find(session[:user_id])
     user.pictures << @picture
 

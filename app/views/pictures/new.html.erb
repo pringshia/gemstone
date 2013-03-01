@@ -1,16 +1,22 @@
 <h1>New Picture</h1>
 
+<% if @albums %>
 <% @albums.each do |album| %>
     <% if (album["type"] == "normal" || album["type"] == "profile") %>
-      <a href='<%= album["link"] %>'><%= album["name"] %></a> <br />
-      <a href='<%= album["link"] %>'><img src='https://graph.facebook.com/<%= album["cover_photo"] %>/picture?type=album&access_token=<%= current_user.oauth_token %>' /></a>
+      <a href='/pictures/new?album=<%= album["id"] %>'><%= album["name"] %></a> <br />
+      <a href='/pictures/new?album=<%= album["id"] %>'><img src='https://graph.facebook.com/<%= album["cover_photo"] %>/picture?type=album&access_token=<%= current_user.oauth_token %>' /></a>
       <br /><br /><br />
     <% end %>
 <% end %>
-
-<%= form_for :picture, :url => {:action => 'create'} do |f| %>
-	<%= f.text_field(:link) %>
-	<%= submit_tag "Save Picture" %>
+<% else %>
+    <%= link_to "Back", action: 'new' %><br />
+    <%= form_for :picture, :url => {:action => 'create'} do |f| %>
+	<% @pictures.each do |pic| %>
+	<%= radio_button_tag 'link', pic["source"] %>
+	<img src='<%= pic["picture"] %>' /><br />
+	<% end %>
+	<%= submit_tag "Choose Picture" %>
+    <% end %>
 <% end %>
 
 <%= link_to 'All Pictures', pictures_path %> | <%= link_to 'Home', :controller => 'users', :action => 'index' %>
