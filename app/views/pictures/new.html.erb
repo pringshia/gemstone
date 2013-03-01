@@ -3,7 +3,7 @@
 <% @albums.each do |album| %>
     <% if (album["type"] == "normal" || album["type"] == "profile") %>
       <a href='<%= album["link"] %>'><%= album["name"] %></a> <br />
-      <a href='<%= album["link"] %>'><img src='https://graph.facebook.com/<%= album["cover_photo"] %>/picture?type=album&access_token=<%= User.find(session[:user_id]).oauth_token %>' /></a>
+      <a href='<%= album["link"] %>'><img src='https://graph.facebook.com/<%= album["cover_photo"] %>/picture?type=album&access_token=<%= current_user.oauth_token %>' /></a>
       <br /><br /><br />
     <% end %>
 <% end %>
