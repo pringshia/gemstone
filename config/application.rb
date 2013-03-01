@@ -11,8 +11,8 @@ end
 
 module Gemstone
   class Application < Rails::Application
-    FACEBOOK_API_KEY = "210880035720880"
-    FACEBOOK_APP_SECRET = "bdb8663b6bed585f52b4d9da84583e34"
+    FACEBOOK_API_KEY = "522971464419886"
+    FACEBOOK_APP_SECRET = "48362c6c7c0ecaba11728536e37b8138"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
