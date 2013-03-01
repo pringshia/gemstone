@@ -1,7 +1,7 @@
 Gemstone::Application.configure do
   # Facebook info for production, this will override the dev credentials in config/application.rb:
-  FACEBOOK_API_KEY = "210880035720880"
-  FACEBOOK_APP_SECRET = "bdb8663b6bed585f52b4d9da84583e34"
+  config.FACEBOOK_API_KEY = "210880035720880"
+  config.FACEBOOK_APP_SECRET = "bdb8663b6bed585f52b4d9da84583e34"
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
