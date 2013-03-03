@@ -12,8 +12,10 @@
     <%= link_to "Back", action: 'new' %><br />
     <%= form_for :picture, :url => {:action => 'create'} do |f| %>
 	<% @pictures.each do |pic| %>
+	<label>
 	<%= radio_button_tag 'link', pic["source"] %>
 	<img src='<%= pic["picture"] %>' /><br />
+	</label>
 	<% end %>
 	<%= submit_tag "Choose Picture" %>
     <% end %>
