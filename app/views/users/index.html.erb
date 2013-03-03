@@ -1,3 +1,5 @@
+<!--
+
 <h1>Listing users</h1>
 <p id="notice"><%= flash[:notice] %></p>
 <table>
@@ -12,15 +14,19 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.id %></td>
-    <!--
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  -->
   </tr>
 <% end %>
 </table>
 
 <br />
 
+-->
+
+<% if current_user %>
 <%= link_to "New Picture" ,:controller => 'pictures', :action => 'new' %> | <%= link_to "All Pictures" ,:controller => 'pictures', :action => 'index' %> |  <%= link_to "Comment on a Picture" ,:controller => 'comments', :action => 'new' %>
+<% else %>
+<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %> Join the <%= @users.count %> other users using this app.
+<% end %>
