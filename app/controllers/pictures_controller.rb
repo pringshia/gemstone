@@ -12,7 +12,7 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
-
+    @comments = Comment.find(:all, :conditions => ["picture_id = ?", params[:id]])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -52,6 +52,7 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find(params[:id])
+    @picture.comments.clear
     @picture.destroy
 
     respond_to do |format|

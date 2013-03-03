@@ -2,4 +2,18 @@
 <br /><br />
 <%= image_tag @picture.link %>
 <br /><br />
+<table>
+  <tr>
+    <th>Comments</th>
+    <th>Date Created</th>
+  </tr>
+
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.commenttext %></td>
+    <td><%= comment.created_at %></td>
+  </tr>
+<% end %>
+</table>
+<br /><br />
 <%= link_to 'Back', pictures_path %>

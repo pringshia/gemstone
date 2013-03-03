@@ -11,7 +11,7 @@
 <% @pictures.each do |picture| %>
   <tr>
     <td><%= picture.id %></td>
-    <td><img src='<%= picture.link %>' /></td>
+    <td><%= picture.link %></td>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

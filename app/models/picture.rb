@@ -1,4 +1,6 @@
 class Picture < ActiveRecord::Base
+  has_many :comments
   belongs_to :user
-  attr_accessible :id, :user_id, :link
+  set_primary_key :id
+  attr_accessible :id, :user_id, :link, :num_comments
 end

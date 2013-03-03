@@ -6,6 +6,7 @@ Gemstone::Application.routes.draw do
 
   resources :users
   resources :pictures
+  resources :comments
 
   root to: 'users#index'
 
