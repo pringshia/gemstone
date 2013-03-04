@@ -1,12 +1,16 @@
 class CommentsController < ApplicationController
 
   def new
-  	@picture = Picture.find(:all, :conditions => ['user_id <> ?', session[:user_id]], :order => "num_comments ASC", :limit =>1)
-    @comment = Comment.new
+    @picture = Picture.find_best_for current_user
+    if @picture.empty?
+      throw "No picture to comment on. Either there are no other users, or other users haven't uploaded pictures."
+    else
+      @comment = Comment.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @comment }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @comment }
+      end
     end
   end
 
