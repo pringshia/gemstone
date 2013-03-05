@@ -7,7 +7,8 @@ Gemstone::Application.routes.draw do
   resources :users
   resources :pictures
   resources :comments
-
+  resources :ratings
+  
   root to: 'users#index'
 
 end

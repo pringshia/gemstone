@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :pictures
   has_many :comments
+  has_many :ratings
   attr_accessible :id
   set_primary_key :id
 

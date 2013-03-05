@@ -11,32 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303045201) do
+ActiveRecord::Schema.define(:version => 20130305063945) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",     :limit => 8
     t.integer  "picture_id"
     t.string   "commenttext"
-    t.integer  "num_ratings", :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "num_ratings",              :default => 0
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.boolean  "redeemed",                 :default => false
   end
 
   create_table "pictures", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",      :limit => 8
     t.string   "link"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-    t.integer  "num_comments", :default => 0
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "num_comments",              :default => 0
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id",    :limit => 8
+    t.integer  "comment_id"
+    t.boolean  "positive"
+    t.datetime "created_at"
   end
 
   create_table "users", :id => false, :force => true do |t|
     t.integer  "id",               :limit => 8
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "name"
+    t.integer  "tokens",                        :default => 0
   end
 
 end
