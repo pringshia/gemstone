@@ -11,30 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305063945) do
+ActiveRecord::Schema.define(:version => 20130305235423) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "user_id",     :limit => 8
+    t.integer  "user_id",       :limit => 8
     t.integer  "picture_id"
-    t.string   "commenttext"
-    t.integer  "num_ratings",              :default => 0
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.boolean  "redeemed",                 :default => false
+    t.string   "comment_text"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.boolean  "redeemed",                   :default => false
+    t.integer  "ratings_count",              :default => 0
   end
 
   create_table "pictures", :force => true do |t|
-    t.integer  "user_id",      :limit => 8
+    t.integer  "user_id",        :limit => 8
     t.string   "link"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.integer  "num_comments",              :default => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.integer  "comments_count",              :default => 0
   end
 
   create_table "ratings", :force => true do |t|
-    t.integer  "user_id",    :limit => 8
+    t.integer  "user_id",     :limit => 8
     t.integer  "comment_id"
-    t.boolean  "positive"
+    t.boolean  "is_positive"
     t.datetime "created_at"
   end
 
