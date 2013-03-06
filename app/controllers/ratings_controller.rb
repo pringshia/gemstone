@@ -21,7 +21,6 @@ class RatingsController < ApplicationController
     user = User.find(session[:user_id])
     comment = Comment.find(params[:com_id][:id])
     comment.ratings << @rating
-    comment.increment!(:num_ratings)
     user.ratings << @rating
 
     respond_to do |format|

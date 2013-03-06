@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
     user = User.find(session[:user_id])
     picture = Picture.find(params[:pic_id][:id])
     picture.comments << @comment
-    picture.increment!(:num_comments)
     user.comments << @comment
 
     respond_to do |format|

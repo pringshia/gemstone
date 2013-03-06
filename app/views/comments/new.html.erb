@@ -3,7 +3,7 @@
 <%= image_tag @picture[0].link %>
 <br /><br />
 <%= form_tag :action => 'create' do %>
-	<%= text_area :comment, :commenttext, :cols => "80", :rows =>"10" %>
+	<%= text_area :comment, :comment_text, :cols => "80", :rows =>"10" %>
 	<%= hidden_field :pic_id, :id, :value => @picture[0].id %>
 	<br />
 	<%= submit_tag("Create Comment") %>

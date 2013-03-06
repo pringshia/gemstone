@@ -2,15 +2,15 @@
 <br /><br />
 <%= image_tag @picture.link %>
 <br /><br />
-<%= @comment[0].commenttext %>
+<%= @comment[0].comment_text %>
 <br />
 <%= form_tag :action => 'create' do %>
-	<%= hidden_field :rating, :positive, :value => true %>
+	<%= hidden_field :rating, :is_positive, :value => true %>
 	<%= hidden_field :com_id, :id, :value => @comment[0].id %>
 	<%= submit_tag("Good") %>
 <%end%>
 <%= form_tag :action => 'create' do %>
-	<%= hidden_field :rating, :positive, :value => false %>
+	<%= hidden_field :rating, :is_positive, :value => false %>
 	<%= hidden_field :com_id, :id, :value => @comment[0].id %>
 	<%= submit_tag("Bad") %>
 <%end%>
