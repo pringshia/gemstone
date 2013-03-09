@@ -1,7 +1,7 @@
 class Picture < ActiveRecord::Base
   has_many :comments
   belongs_to :user
-  set_primary_key :id
+  self.primary_key = :id
   attr_accessible :id, :user_id, :link, :comments_count
 
   def self.find_best_for(user)

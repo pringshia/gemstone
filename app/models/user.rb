@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :ratings
   attr_accessible :id
-  set_primary_key :id
+  self.primary_key = :id
 
   def to_param
     id

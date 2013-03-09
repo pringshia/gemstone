@@ -10,7 +10,7 @@ group :development, :test do
     gem 'sqlite3'
     gem 'factory_girl_rails', '~> 4.0'
     gem 'faker'
-    gem 'rspec', '~> 2.13.0'
+    gem 'rspec-rails', '~> 2.13.0'
 end
 
 group :production do

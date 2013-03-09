@@ -13,7 +13,10 @@ module Gemstone
   class Application < Rails::Application
     config.FACEBOOK_API_KEY = "522971464419886"
     config.FACEBOOK_APP_SECRET = "48362c6c7c0ecaba11728536e37b8138"
-    # Settings in config/environments/* take precedence over those specified here.
+   	config.generators do |g|
+		g.test_framework :rspec
+	end 
+	# Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
