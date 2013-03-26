@@ -1,12 +1,14 @@
 class RatingsController < ApplicationController
 
-	def new
+  def new
     @comment = Comment.find_best_for current_user
     if @comment.empty?
       flash.keep[:notice] = "No new comments to rate, proceed to commenting picture"
       redirect_to :controller => 'comments', :action => 'new'
+    elsif (@comment[0].picture_id.nil?)
+      @comment[0].destroy!
+      redirect_to controller: 'ratings', action: 'new'
     else
-      puts @comment.inspect
       @picture = Picture.find(@comment[0].picture_id)
       @rating = Rating.new
 
