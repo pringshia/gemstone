@@ -8,6 +8,9 @@ gem 'omniauth-facebook'
 
 group :development, :test do
     gem 'sqlite3'
+    gem 'factory_girl_rails', '~> 4.0'
+    gem 'faker'
+    gem 'rspec-rails', '~> 2.13.0'
 end
 
 group :production do

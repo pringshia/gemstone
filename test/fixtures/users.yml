@@ -1,7 +1,62 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  id: 1
+user1:
+  id: 		1
+	name:		Will Pan
+	tokens:	0
 
-two:
-  id: 1
+user2:
+  id:			2
+	name:		Pratik Ringshia
+	tokens:	13
+
+user3:
+  id:			3 
+	name:		Aaron Sun
+	tokens:	7
+
+user4:
+  id:			5
+	name:		Bill Gretzmacher
+	tokens:	
+
+user5:		
+  id:			4
+	name: 	Joan of Arc
+	tokens:	5
+
+user6:
+  id:			6
+	name:		Hitler
+	tokens:	6000000
+
+user7:
+  id:			7
+	name:		Freddy Mercury
+	tokens:	43
+
+user8:
+  id:			8
+	name:		Omar Raja
+	tokens:	9
+
+user9:
+  id:			9
+	name:		Frederick III, Elector of Saxony
+	tokens:	1525
+
+user10:
+  id:			10
+	name:		Madonna
+	tokens: 1
+
+user11:
+  id:			11
+	name:		Guo
+	tokens:	20
+
+user12:
+  id:			12
+	name:		Jennifer Lumeng Yu
+	tokens:	7
+

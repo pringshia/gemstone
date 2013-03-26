@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :picture, :counter_cache => true
 	has_many :ratings
-	set_primary_key :id
+	self.primary_key = :id
     attr_accessible :id, :user_id, :picture_id, :comment_text, :ratings_count
 
     def self.find_best_for(user)
