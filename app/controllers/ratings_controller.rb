@@ -6,7 +6,8 @@ class RatingsController < ApplicationController
       flash.keep[:notice] = "No new comments to rate, proceed to commenting picture"
       redirect_to :controller => 'comments', :action => 'new'
     else
-    @picture = Picture.find(@comment[0].picture_id)
+      puts @comment.inspect
+      @picture = Picture.find(@comment[0].picture_id)
       @rating = Rating.new
 
       respond_to do |format|
