@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :picture, :counter_cache => true
 	has_many :ratings
 	self.primary_key = :id
-    attr_accessible :id, :user_id, :picture_id, :comment_text, :ratings_count
+    attr_accessible :id, :user_id, :picture_id, :comment_text, :ratings_count, :redeemed
 
     def self.find_best_for(user)
     user = (user.class == User)? user.id : user
@@ -13,5 +13,13 @@ class Comment < ActiveRecord::Base
          :order => "comments.ratings_count ASC", 
          :limit => 1)
 
-  end
+    end
+
+    def self.find_redeem_comment(picture)
+    find(:all,
+         :conditions => ["comments.picture_id = ? AND comments.redeemed = ?", picture.id, false],
+         :order => "comments.created_at ASC",
+         :limit => 1)
+    end
+
 end

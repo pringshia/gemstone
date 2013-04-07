@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :pictures
   has_many :comments
   has_many :ratings
-  attr_accessible :id
+  attr_accessible :id, :tokens
   self.primary_key = :id
 
   def to_param
@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
         user.id = auth.uid
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.save!
+    end
+  end
+
+  def self.update_tokens(rating)
+    if rating.is_positive
+      comment = Comment.find(rating.comment_id)
+      tokenupdate = User.find(comment.user_id)
+      tokenupdate.increment!(:tokens)
     end
   end
 end

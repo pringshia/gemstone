@@ -8,12 +8,26 @@
     <th>Date Created</th>
   </tr>
 
+<% redeemcomment = 0 %>
 <% @comments.each do |comment| %>
   <tr>
+  	<% if comment.redeemed %>
     <td><%= comment.comment_text %></td>
     <td><%= comment.created_at %></td>
+    <% else 
+    	redeemcomment = redeemcomment + 1
+    %>
+    <% end %>
   </tr>
 <% end %>
 </table>
+<% if redeemcomment > 0 && @user.tokens > 0%>
+<%= form_tag :action => 'retrieve' do %>
+	<%= hidden_field :pic_id, :id, :value => @picture.id %>
+	<%= submit_tag("Redeem Comment") %>
+<%end%>
+<%end%>
+<br />
+You have <%= redeemcomment %> unredeemed comments and <%= @user.tokens %> tokens
 <br /><br />
 <%= link_to 'Back', pictures_path %>

@@ -4,9 +4,12 @@ Gemstone::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   get 'pictures/add/:link' => 'pictures#create', as: :add_picture
 
+  resources :users
   resources :pictures
   resources :comments
   resources :ratings
+
+  match 'pictures/retrieve' => 'pictures#retrieve', :as => :retrieve
   
   root to: 'users#index'
 
