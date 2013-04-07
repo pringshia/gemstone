@@ -3,11 +3,15 @@ class UsersController < ApplicationController
   # GET /users.json
 
   def index
-    @users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+    if current_user
+      redirect_to pictures_path
+    else
+      @users = User.all
+    
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @users }
+      end
     end
   end
 

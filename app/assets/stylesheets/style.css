@@ -1,0 +1,139 @@
+body {
+	font: 12px/1.6 "Lucida Grande", "Lucida Sans Unicode", Lucida, Verdana;
+}
+
+a, a:visited {
+	
+}
+
+a:hover, a:active {
+	
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
+	
+}
+
+body {
+height: 100%;
+}
+
+#container {
+	overflow: auto;
+	height: 100%;
+}
+
+#header {
+	width: 202px;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #dadada;
+	margin-right: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+h1 a {
+	width: 165px;
+	height: 65px;
+	display: block;
+	text-indent: -999px;
+	background-image: url(logo.png);
+	margin: 20px auto 0;
+	cursor: pointer;
+}
+h1 a:active {
+	position: relative;
+	top: 1px;
+}
+#nav {
+	margin-top: 30px;
+}
+#nav li a, #nav li a:visited  {
+	text-decoration: none;
+	font: bold 16px Helvetica, sans;
+	display: block;
+	padding: 10px;
+	color: black;
+	text-align: right;
+}
+#nav li a:hover {
+	color: orangered;
+}
+
+#nav li.current {
+	background-color: #ddd;
+}
+#nav li.current a {
+}
+
+#panel {
+	text-align: center;
+	margin: 30px 0;
+}
+
+#main {
+	padding: 20px 0 0 20px;
+	position: fixed;
+	top: 0;
+	left: 200px;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+}
+
+h3 {
+	font: bold 16px Helvetica;
+	margin-bottom: 15px;
+}
+
+.badge {
+	background-image: url(badge.png);
+	width: 35px;
+	height: 17px;
+	text-align: center;
+	padding: 9px 0;
+	font: bold 16px Helvetica;
+	color: white;
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	text-shadow: 0px 1px 0px #490707;
+}
+#pics li#add:hover a {
+	color: black;
+}
+#pics li#add a {
+	display: block;
+	width: 130px;
+	height: 10px;
+	padding-top: 96px;
+	margin: 0;
+	background: center center url(add.png) no-repeat;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #878787;
+}
+#pics li {
+	height: 180px;
+	position: relative;
+	float: left;
+	margin-right: 30px;
+	Xborder: 1px solid #b6b6b6;
+	text-align: center;
+}
+#pics li:hover {
+	cursor: pointer;
+}
+#pics li:hover p {
+	text-decoration: underline;
+}
+#pics li img {
+	border: 1px solid #666;
+}

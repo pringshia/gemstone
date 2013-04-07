@@ -1,23 +1,13 @@
-<h1>Listing Pictures</h1>
+<h3>My Pictures</h3>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Link</th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul id='pics'>
+	<li id='add'><p><%= link_to 'Add a Picture', :controller => 'pictures', :action => 'new' %></p></li>
 <% @pictures.each do |picture| %>
-  <tr>
-    <td><%= picture.id %></td>
-    <td><%= image_tag picture.link, style: 'max-height: 200px; max-width: 200px;' %></td>
-    <td><%= link_to 'Show', picture %></td>
-    <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <li>
+    <%= link_to image_tag(picture.link.gsub(/_n./, '_s.')), picture %></td><span class='badge'><%= picture.comments_count %></span>
+    <p><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </li>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Picture', :controller => 'pictures', :action => 'new' %> | <%= link_to 'Home', :controller => 'users', :action => 'index' %>
+</ul>
