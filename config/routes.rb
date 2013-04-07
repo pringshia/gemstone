@@ -8,6 +8,8 @@ Gemstone::Application.routes.draw do
   resources :pictures
   resources :comments
   resources :ratings
+
+  match 'pictures/retrieve' => 'pictures#retrieve', :as => :retrieve
   
   root to: 'users#index'
 

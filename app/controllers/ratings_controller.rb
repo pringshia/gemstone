@@ -25,6 +25,7 @@ class RatingsController < ApplicationController
     comment = Comment.find(params[:com_id][:id])
     comment.ratings << @rating
     user.ratings << @rating
+    User.update_tokens @rating
 
     respond_to do |format|
       if @rating.save

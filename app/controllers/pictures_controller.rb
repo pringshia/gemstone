@@ -12,6 +12,7 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @user = User.find(session[:user_id])
     @comments = Comment.find(:all, :conditions => ["picture_id = ?", params[:id]])
     respond_to do |format|
       format.html # show.html.erb
@@ -48,6 +49,19 @@ class PicturesController < ApplicationController
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def retrieve
+    @picture = Picture.find(params[:pic_id][:id])
+    @user = User.find(session[:user_id])
+    if @user.tokens > 0
+      @user.decrement!(:tokens)
+      comment = Comment.find_redeem_comment @picture
+      Comment.update(comment[0].id, :redeemed => true)
+    end
+    @comments = Comment.find(:all, :conditions => ["picture_id = ?", @picture.id])
+    render :controller => "pictures", :action => "show"
+
   end
 
   def destroy
