@@ -21,7 +21,8 @@
 		<% if current_user %>
 			<div id='panel'>
 			
-				Hi, <strong><%= current_user.name %></strong>! <br /> 
+				Hi, <strong><%= current_user.name %></strong>! <br />
+				You have <%= current_user.tokens %> token(s). <br />
 				<%= link_to "Logout", signout_path, id: "sign_out" %>
     		
 			</div>
