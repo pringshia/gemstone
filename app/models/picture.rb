@@ -3,6 +3,7 @@ class Picture < ActiveRecord::Base
   belongs_to :user
   self.primary_key = :id
   attr_accessible :id, :user_id, :link, :comments_count
+  validates_presence_of :link 
 
   def self.find_best_for(user)
     user = (user.class == User)? user.id : user

@@ -45,7 +45,7 @@ class PicturesController < ApplicationController
         format.html { redirect_to @picture, notice: 'Picture was sucessfully saved.' }
         format.json { render json: @picture, status: :created, location: @picture }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to @picture, flash: {error: @picture.errors.full_messages.to_sentence}  }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
