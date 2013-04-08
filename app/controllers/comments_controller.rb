@@ -3,7 +3,9 @@ class CommentsController < ApplicationController
   def new
     @picture = Picture.find_best_for current_user
     if @picture.empty?
-      throw "No picture to comment on. Either there are no other users, or other users haven't uploaded pictures."
+      # throw "No picture to comment on. Either there are no other users, or other users haven't uploaded pictures."
+      flash.keep[:notice] = "No picture to comment on. Either there are no other users, or other users haven't uploaded pictures."
+      redirect_to :controller => 'pictures', :action => 'index'
     else
       @comment = Comment.new
 

@@ -1,27 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />	
+
   <title>Gemstone</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <!-- <%= stylesheet_link_tag    "application", :media => "all" %> -->
+	<%= stylesheet_link_tag "reset" %>
+	<%= stylesheet_link_tag "style" %>
+	
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id='container'>
-    <div id='user_nav'>
-      <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-	<%= link_to "Sign out", signout_path, id: "sign_out" %>
-      <% else %>
-	<!-- <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %> -->
-      <% end %>
-    </div>
+		<div id='header'><h1><%= link_to "Free Compliments!", root_path %></h1>
+		<% if current_user %>
+			<div id='panel'>
+			
+				Hi, <strong><%= current_user.name %></strong>! <br />
+				You have <%= current_user.tokens %> token(s). <br />
+				<%= link_to "Logout", signout_path, id: "sign_out" %>
+    		
+			</div>
+    	<ul id='nav'>
+				<li><%= link_to "My Pictures" ,:controller => "pictures", :action => "index" %></li>
+				<li><%= link_to "Earn Tokens" ,:controller => 'ratings', :action => 'new' %></li>
+    	</ul>
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
-
+		<% else %>
+		<div id='panel'>
+			<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %><br /> <%= @users.count %> other users using this app.		</div>
+		<% end %>
+		</div>
+		
+		<div id='main'>		
+			<div id='message'>
+				<% flash.each do |name, msg| %>
+		      <%= content_tag :div, msg, id: "flash_#{name}" %>
+		    <% end %>
+			</div>
+			
     <%= yield %>
+		</div>
+
 
 </body>
 </html>
