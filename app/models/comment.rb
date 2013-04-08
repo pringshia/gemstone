@@ -3,7 +3,8 @@ class Comment < ActiveRecord::Base
 	belongs_to :picture, :counter_cache => true
 	has_many :ratings
 	self.primary_key = :id
-    attr_accessible :id, :user_id, :picture_id, :comment_text, :ratings_count, :redeemed
+  attr_accessible :id, :user_id, :picture_id, :comment_text, :ratings_count, :redeemed
+  validates_presence_of :comment_text
 
     def self.find_best_for(user)
     user = (user.class == User)? user.id : user

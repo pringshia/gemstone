@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to :controller => 'users', :action => 'index'}
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_comment_path, flash: {error: @comment.errors.full_messages.to_sentence}  }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
