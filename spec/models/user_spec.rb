@@ -11,20 +11,25 @@ describe User do
 		@user_no_name = User.new
 	end
 
-	it "is valid with proper values"
-	it "is not valid without a name"
-	it "is not valid with tokens less than zero"
-
-	it "is valid with proper values" do
-		@user_valid.should be_valid	
+	it "should not have any tokens" do
+		user = FactoryGirl.build(:user)
+		user.tokens.should equal(0)
 	end
 
-	it "is not valid without a name" do
-		@user_no_name.should_not be_valid
+	it "should be the same as the id" do
+		user = FactoryGirl.build(:user)
+		user.to_param.should equal(user.id)
 	end
 
-	it "is not valid with tokens less than zero" do
-		@user_invalid_token.should_not be_valid 
+	it "should have one token" do
+		user = FactoryGirl.create(:user)
+		comment = FactoryGirl.create(:comment, user_id: user.id)
+		rating = FactoryGirl.create(:rating, comment_id: comment.id, is_positive: true)
+		
+		comment.user_id.should equal(user.id)
+		rating.comment_id.should equal(comment.id)
+		User.update_tokens(rating)
+		user.tokens.should equal(1)
 	end
 end
 

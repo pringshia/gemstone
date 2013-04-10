@@ -1,5 +1,6 @@
 # Factory methods
 FactoryGirl.define do
+
 	factory :user do
 		name {Faker::Name.name}
 		created_at {Time.now}
