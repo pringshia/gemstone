@@ -52,15 +52,13 @@ class PicturesController < ApplicationController
   end
 
   def retrieve
-    @picture = Picture.find(params[:pic_id][:id])
+    @picture = Picture.find(params[:id])
     @user = User.find(session[:user_id])
     if @user.tokens > 0
       @user.decrement!(:tokens)
       Comment.redeem_comment @picture
     end
-    @comments = Comment.find(:all, :conditions => ["picture_id = ? AND redeemed = ?", @picture.id, true], :order => "comments.created_at ASC")
-    render :controller => "pictures", :action => "show"
-
+    redirect_to :controller => "pictures", :action => "show", :id => params[:id]
   end
 
   def destroy
