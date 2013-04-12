@@ -22,8 +22,9 @@ class PicturesController < ApplicationController
 
   def new
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    if (params[:album])
-      @pictures = @graph.get_connections params[:album], "photos"
+    if (params[:album] || params[:page])
+      @pictures = params[:page] ? @graph.get_page(params[:page]) : @graph.get_connections(params[:album], "photos")
+      # @pictures = @graph.get_connections params[:album], "photos"
     else
       @albums = @graph.get_connections "me", "albums"
     end

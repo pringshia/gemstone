@@ -37,8 +37,13 @@
 		</ul>
 		<br />
 		
-		<div class='sticky'>
-			<%= submit_tag "Choose Picture", class: 'button' %> Next Page, Previous Page, Back to Albums
+		<div class='toolbar'>
+			<%= submit_tag "Choose Picture", class: 'button' %>&nbsp;&nbsp;&nbsp;
+			<% if @pictures.previous_page_params %>
+				<%= link_to 'Previous', url_for(:page => @pictures.previous_page_params) %>
+			<% elsif @pictures.next_page_params %>
+				<%= link_to 'Next', url_for(:page => @pictures.next_page_params) %>
+			<% end %>
 		</div>
 				
 		<br /><br /><br />
