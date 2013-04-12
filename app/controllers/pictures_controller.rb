@@ -13,7 +13,7 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find(params[:id])
     @user = User.find(session[:user_id])
-    @comments = Comment.find(:all, :conditions => ["picture_id = ?", params[:id]])
+    @comments = Comment.find(:all, :conditions => ["picture_id = ? AND redeemed = ?", params[:id], true], :order => "comments.created_at ASC")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -58,7 +58,7 @@ class PicturesController < ApplicationController
       @user.decrement!(:tokens)
       Comment.redeem_comment @picture
     end
-    @comments = Comment.find(:all, :conditions => ["picture_id = ?", @picture.id])
+    @comments = Comment.find(:all, :conditions => ["picture_id = ? AND redeemed = ?", @picture.id, true], :order => "comments.created_at ASC")
     render :controller => "pictures", :action => "show"
 
   end
