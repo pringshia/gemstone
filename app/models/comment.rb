@@ -19,7 +19,7 @@ class Comment < ActiveRecord::Base
     def self.redeem_comment (picture)
     picture = (picture.class == Picture)? picture.id : picture
     com = find(:all,
-         :conditions => ["comments.picture_id = ? AND comments.redeemed = ?", picture.id, false],
+         :conditions => ["comments.picture_id = ? AND comments.redeemed = ?", picture, false],
          :order => "comments.created_at ASC",
          :limit => 1)
       
