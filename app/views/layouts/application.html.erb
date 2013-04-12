@@ -27,8 +27,9 @@
     		
 			</div>
     	<ul id='nav'>
-				<li><%= link_to "My Pictures" ,:controller => "pictures", :action => "index" %></li>
-				<li><%= link_to "Earn Tokens" ,:controller => 'ratings', :action => 'new' %></li>
+				<li><%= link_to "My Pictures", :controller => "pictures", :action => "index" %></li>
+				<li><%= link_to "Earn Tokens", :controller => 'ratings', :action => 'new' %></li>
+				<li><%= link_to "Track Comments", :controller => 'comments', :action => 'mine' %></li>
     	</ul>
 
 		<% else %>

@@ -1,18 +1,26 @@
-<%= image_tag @picture.link %>
-<br /><br />
+<%= image_tag @picture.link, id: 'user_picture' %>
+
+<div id='picture_comments'>
+	
+<% if @picture.comments_count == 0 %>
+	Hey hot stuff, you have no compliments yet. Please check back later.
+<% else %>
+
+<% unless @comments.empty? %>
 <table>
   <tr>
     <th>Comments</th>
-    <th>Date Created</th>
   </tr>
 
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.comment_text %></td>
-    <td><%= comment.created_at %></td>
   </tr>
 <% end %>
 </table>
+
+<% end %>
+
 <% if @picture.unredeemed_count > 0 && @user.tokens > 0%>
 <%= form_tag :action => 'retrieve' do %>
 	<%= hidden_field :pic_id, :id, :value => @picture.id %>
@@ -21,5 +29,7 @@
 <%end%>
 <br />
 You have <%= @picture.unredeemed_count %> unredeemed comments and <%= @user.tokens %> tokens
-<br /><br />
-<%= link_to 'Back', pictures_path %>
+
+<% end %>
+
+</div>

@@ -16,6 +16,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def mine
+      @comments = Comment.where("user_id = ?", session[:user_id])
+      render "mine" 
+  end
+
   def create
     @comment = Comment.new(params[:comment])
     user = User.find(session[:user_id])
