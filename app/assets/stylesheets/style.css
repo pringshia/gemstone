@@ -105,9 +105,19 @@ h3 {
 	right: -12px;
 	text-shadow: 0px 1px 0px #490707;
 }
+
+#pics {
+	overflow: hidden;
+	padding-top: 20px;
+}
 #pics li#add:hover a {
 	color: black;
 }
+
+#pics a {
+	text-decoration: none;
+}
+
 #pics li#add a {
 	display: block;
 	width: 130px;
@@ -128,23 +138,64 @@ h3 {
 	Xborder: 1px solid #b6b6b6;
 	text-align: center;
 }
-#pics li:hover {
+#pics li {
 	cursor: pointer;
 }
 #pics li:hover p {
 	text-decoration: underline;
 }
-#pics li img {
+#pics img {
 	border: 1px solid #666;
 }
 
-#user_picture {
+.user_picture {
 	float: left;
 	margin-right: 20px;
+	margin-bottom: 20px;
 	max-width: 400px;
 }
 
 #picture_comments {
 	width: 300px;
 	float: left;
+}
+
+
+
+#pics li.album {
+	margin: 10px;
+	height: 200px;
+	width: 170px;
+}
+
+#pics li.album img {
+	border: 10px ridge #dadada;
+}
+#pics li.album a {
+	color: #4a4a4a;
+	font-weight: bold;
+}
+
+.selectPic {
+}
+
+.sticky {
+	position: fixed;
+	bottom: 0;
+	background-color: white;
+	background-color: rgba(255,255,255,0.9);
+	width: 100%;
+	padding: 10px;
+}
+
+#pics li.selectable input[type=radio] {display: none}
+#pics li.selectable input[type=radio]~input[type=submit] {display: none}
+
+#pics li.selectable img { border: 8px solid #eaeaea; cursor: /* pointer; opacity: 0.7 */} 
+#pics li.selectable input[type=radio]:checked~img{ border: 8px solid orangered; opacity: 1}
+#pics li.selectable img:hover { border: 8px solid #bababa; opacity: 1}
+
+.album .count {
+}
+.album .name {
 }

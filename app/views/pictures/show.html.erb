@@ -1,4 +1,4 @@
-<%= image_tag @picture.link, id: 'user_picture' %>
+<%= image_tag @picture.link, class: 'user_picture' %>
 
 <div id='picture_comments'>
 	
@@ -7,17 +7,10 @@
 <% else %>
 
 <% unless @comments.empty? %>
-<table>
-  <tr>
-    <th>Comments</th>
-  </tr>
 
 <% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.comment_text %></td>
-  </tr>
+    <div class='chatbubble'><%= comment.comment_text %></div>
 <% end %>
-</table>
 
 <% end %>
 

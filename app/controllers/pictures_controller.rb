@@ -25,7 +25,7 @@ class PicturesController < ApplicationController
     if (params[:album])
       @pictures = @graph.get_connections params[:album], "photos"
     else
-      @albums = @graph.get_connections "me", "albums" 
+      @albums = @graph.get_connections "me", "albums"
     end
     @picture = Picture.new
 

@@ -1,24 +1,46 @@
-<h1>New Picture</h1>
 
 <% if @albums %>
+
+<h3>Choose an Album</h1>
+
+<ul id="pics">
 <% @albums.each do |album| %>
     <% if (album["type"] == "normal" || album["type"] == "profile") %>
-      <a href='/pictures/new?album=<%= album["id"] %>'><%= album["name"] %></a> <br />
-      <a href='/pictures/new?album=<%= album["id"] %>'><img src='https://graph.facebook.com/<%= album["cover_photo"] %>/picture?type=album&access_token=<%= current_user.oauth_token %>' /></a>
-      <br /><br /><br />
+			<li class="album">				
+					<a href='/pictures/new?album=<%= album["id"] %>'>
+					<img src='https://graph.facebook.com/<%= album["cover_photo"] %>/picture?type=album&access_token=<%= current_user.oauth_token %>' />
+					</a>
+				<figcaption class="name">
+					<a href='/pictures/new?album=<%= album["id"] %>'><%= album["name"] %>  <span class="count">(<%= album["count"] %>)</span>
+					 </a>
+				</figcaption>
+			</li>
     <% end %>
 <% end %>
+</ul>
 <% else %>
-    <%= link_to "Back", action: 'new' %><br />
+
+<h3>Choose a Picture</h1>
+
+		<%= javascript_include_tag "pictures" %>
+
     <%= form_for :picture, :url => {:action => 'create'} do |f| %>
-	<% @pictures.each do |pic| %>
-	<label>
-	<%= radio_button_tag 'link', pic["source"] %>
-	<img src='<%= pic["picture"] %>' /><br />
-	</label>
-	<% end %>
-	<%= submit_tag "Choose Picture" %>
+		<ul id="pics">
+			<% @pictures.each do |pic| %>
+				<li class='selectable'>
+					<label>
+					<%= radio_button_tag 'link', pic["source"] %>
+					<img src='<%= pic["picture"] %>' /><br />
+					</label>
+				</li>
+			<% end %>
+		</ul>
+		<br />
+		
+		<div class='sticky'>
+			<%= submit_tag "Choose Picture", class: 'button' %> Next Page, Previous Page, Back to Albums
+		</div>
+				
+		<br /><br /><br />
     <% end %>
 <% end %>
-
-<%= link_to 'All Pictures', pictures_path %> | <%= link_to 'Home', :controller => 'users', :action => 'index' %>

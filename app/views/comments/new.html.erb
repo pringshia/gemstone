@@ -1,6 +1,6 @@
-<h1>Comment on Picture</h1>
+<h3>Comment on Picture</h3>
 <br /><br />
-<%= image_tag @picture[0].link %>
+<%= image_tag @picture[0].link, class: 'user_picture' %>
 <br /><br />
 <%= form_tag :action => 'create' do %>
 	<%= text_area :comment, :comment_text, :cols => "80", :rows =>"10" %>
