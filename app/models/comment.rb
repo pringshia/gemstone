@@ -16,11 +16,14 @@ class Comment < ActiveRecord::Base
 
     end
 
-    def self.find_redeem_comment(picture)
-    find(:all,
+    def self.redeem_comment (picture)
+    picture = (picture.class == Picture)? picture.id : picture
+    com = find(:all,
          :conditions => ["comments.picture_id = ? AND comments.redeemed = ?", picture.id, false],
          :order => "comments.created_at ASC",
          :limit => 1)
+      
+    com[0].update_attributes(:redeemed => true)
     end
 
 end
