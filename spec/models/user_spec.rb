@@ -29,6 +29,7 @@ describe User do
 		comment.user_id.should equal(user.id)
 		rating.comment_id.should equal(comment.id)
 		User.update_tokens(rating)
+		user.reload
 		user.tokens.should equal(1)
 	end
 end
