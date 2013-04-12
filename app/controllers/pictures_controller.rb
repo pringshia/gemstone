@@ -58,6 +58,7 @@ class PicturesController < ApplicationController
       @user.decrement!(:tokens)
       comment = Comment.find_redeem_comment @picture
       Comment.update(comment[0].id, :redeemed => true)
+      comment[0].save
     end
     @comments = Comment.find(:all, :conditions => ["picture_id = ?", @picture.id])
     render :controller => "pictures", :action => "show"
