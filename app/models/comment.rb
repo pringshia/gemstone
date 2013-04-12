@@ -9,8 +9,8 @@ class Comment < ActiveRecord::Base
     def self.find_best_for(user)
     user = (user.class == User)? user.id : user
     find(:all, 
-         :joins => ["LEFT OUTER JOIN ratings ON ratings.comment_id = comments.id"], 
-         :conditions => ["(comments.id NOT IN (SELECT ratings.comment_id FROM ratings WHERE ratings.user_id = ? )) AND comments.user_id <> ?", user, user], 
+         :joins => ["LEFT OUTER JOIN ratings ON ratings.comment_id = comments.id LEFT OUTER JOIN pictures ON pictures.id = comments.picture_id"], 
+         :conditions => ["(comments.id NOT IN (SELECT ratings.comment_id FROM ratings WHERE ratings.user_id = ? )) AND comments.user_id <> ? AND pictures.user_id <> ?", user, user, user], 
          :order => "comments.ratings_count ASC", 
          :limit => 1)
 
