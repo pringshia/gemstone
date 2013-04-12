@@ -4,7 +4,7 @@
 	<li id='add'><p><%= link_to 'Add a Picture', :controller => 'pictures', :action => 'new' %></p></li>
 <% @pictures.each do |picture| %>
   <li>
-    <%= link_to image_tag(picture.link.gsub(/_n./, '_s.')), picture %></td><% if picture.undredeemed_count != 0 %><span class='badge'><%= picture.unredeemed_count %></span><% end %>
+    <%= link_to image_tag(picture.link.gsub(/_n./, '_s.')), picture %></td><% if picture.unredeemed_count != 0 %><span class='badge'><%= picture.unredeemed_count %></span><% end %>
     <p><%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </li>
 <% end %>
