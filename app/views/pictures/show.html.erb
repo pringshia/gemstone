@@ -17,7 +17,7 @@
 <% if @picture.unredeemed_count > 0 && @user.tokens > 0%>
 <%= form_tag :action => 'retrieve' do %>
 	<%= hidden_field :pic_id, :id, :value => @picture.id %>
-	<%= submit_tag("Redeem Comment") %>
+	<%= submit_tag("Redeem Comment", class: 'button') %>
 <%end%>
 <%end%>
 <br />
