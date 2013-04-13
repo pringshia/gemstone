@@ -4,6 +4,7 @@ class Picture < ActiveRecord::Base
   self.primary_key = :id
   attr_accessible :id, :user_id, :link, :comments_count, :unredeemed_count
   validates_presence_of :link 
+  validates_uniqueness_of :link
 
   def self.find_best_for(user)
     user = (user.class == User)? user.id : user

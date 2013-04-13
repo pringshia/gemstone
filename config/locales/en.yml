@@ -12,3 +12,4 @@ en:
           attributes:
             link:
               blank: "must be selected"
+              exclusion: "cannot be the same as one already selected"
