@@ -8,14 +8,15 @@ describe Comment do
 	end
 
 	it "should return the first comment" do
-		redeemed_comment = Comment.find_redeem_comment(@picture).first
-		redeemed_comment.id.should equal(@first_comment.id)		
+		Comment.redeem_comment(@picture)
+		@first_comment.reload
+		@first_comment.redeemed.should equal(true)		
 	end
 
 	it "should not be redeemed" do
-		redeemed_comment = Comment.find_redeem_comment(@picture).first
-		redeemed_comment.reload
-		redeemed_comment.redeemed.should equal(false)
+		Comment.redeem_comment(@picture)
+		@second_comment.reload
+		@second_comment.redeemed.should equal(false)
 	end
 end
 
