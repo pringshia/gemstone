@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   def index
   	user = User.find(session[:user_id])
-    @pictures = user.pictures    
+    @pictures = user.pictures.order("created_at")    
     
     respond_to do |format|
       format.html # index.html.erb
