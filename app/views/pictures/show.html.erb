@@ -3,7 +3,7 @@
 <div id='picture_comments'>
 	
 <% if @picture.comments_count == 0 %>
-	Hey hot stuff, you have no compliments yet. Please check back later.
+	<span class='none'>Hey hot stuff, you have no compliments yet. Please check back later.</span>
 <% else %>
 
 <% unless @comments.empty? %>

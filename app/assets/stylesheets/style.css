@@ -78,7 +78,7 @@ h1 a:active {
 }
 
 #main {
-	padding: 20px 0 0 20px;
+	padding: 20px 20px 0 20px;
 	position: fixed;
 	top: 0;
 	left: 200px;
@@ -202,4 +202,50 @@ img.maxsize {
 .album .count {
 }
 .album .name {
+}
+
+
+#flash_error, #flash_notice {
+	margin-bottom: 10px;
+	padding: 13px 10px;
+}
+#flash_notice {
+	border-top: 3px solid #67a546;
+	border-bottom: 3px solid #67a546;
+	background-color: #eef6ea;
+
+}
+#flash_error {
+	border-top: 3px solid #c62525;
+	border-bottom: 3px solid #c62525;
+	background-color: #fbe6e6;
+}
+
+#picture_comments form {
+	text-align: center;
+}
+.none {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.input_bubble {
+	width: 290px; margin: 2px 0px; height: 114px; background-color: transparent; border: 0px;
+}
+
+.picture_option {
+	display: none;
+}
+
+.thumb {
+	float: left;
+	cursor: pointer;
+	display: block;
+	margin-right: 10px;
+}
+.picture_choices {
+	height: 200px;
+}
+.picture_option[data-index=pic_0] {
+	display: block;
 }

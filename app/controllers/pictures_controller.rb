@@ -2,8 +2,8 @@ class PicturesController < ApplicationController
 
   def index
   	user = User.find(session[:user_id])
-    @pictures = user.pictures
-
+    @pictures = user.pictures    
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -43,10 +43,10 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was sucessfully saved.' }
+        format.html { redirect_to @picture, notice: 'Picture was successfully saved.' }
         format.json { render json: @picture, status: :created, location: @picture }
       else
-        format.html { redirect_to @picture, flash: {error: @picture.errors.full_messages.to_sentence}  }
+        format.html { redirect_to new_picture_path, flash: {error: @picture.errors.full_messages.to_sentence}  }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end

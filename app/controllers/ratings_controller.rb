@@ -3,7 +3,7 @@ class RatingsController < ApplicationController
   def new
     @comment = Comment.find_best_for current_user
     if @comment.empty?
-      flash.keep[:notice] = "No new comments to rate, proceed to commenting picture"
+      flash.keep[:notice] = "There are currently no comments to rate. Please proceed to commenting on a picture."
       redirect_to :controller => 'comments', :action => 'new'
     elsif (@comment[0].picture_id.nil?)
       @comment[0].destroy

@@ -1,13 +1,30 @@
+<%= javascript_include_tag "pictures" %>
+
+
 <h3>Comment on Picture</h3>
-<br /><br />
-<% @picture.each do |pictures| %>
-<%= image_tag pictures.link, class: 'user_picture' %>
-<br /><br />
-<%= form_tag :action => 'create' do %>
-	<%= text_area :comment, :comment_text, :cols => "80", :rows =>"10" %>
-	<%= hidden_field :pic_id, :id, :value => pictures.id %>
-	<br />
-	<%= submit_tag("Create Comment") %>
+Picture Choices:
+<div class='picture_choices'>
+<% @picture.each_with_index do |pic, index| %>
+	<% data = 'pic_'+index.to_s %>
+	<%= image_tag pic.link.gsub(/_n./, '_s.'), class: 'thumb', data: {index: data} %>
+<% end %>
+</div>
+
+
+<% @picture.each_with_index do |pic, index| %>
+	<% data = 'pic_'+index.to_s %>
+	<div class='picture_option' data-index='<%= data %>' >
+		<%= image_tag pic.link, class: 'user_picture' %>	
+		<%= form_tag :action => 'create' do %>
+		<div class='chatbubble'>
+			Leave a compliment:
+			<%= text_area :comment, :comment_text, class: 'input_bubble' %>
+		</div>
+		<%= hidden_field :pic_id, :id, :value => pic.id %>
+		<br />
+		<%= submit_tag("Create Comment", class: "button") %>
+		<%end%>
+		</div>		
 <%end%>
-<%end%>
+
 
