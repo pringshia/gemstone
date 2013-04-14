@@ -10,7 +10,7 @@ class Picture < ActiveRecord::Base
     user = (user.class == User)? user.id : user
     find(:all, 
          :joins => "LEFT OUTER JOIN comments ON comments.picture_id = pictures.id", 
-         :conditions => ['(pictures.id NOT IN (SELECT comments.picture_id FROM comments WHERE comments.user_id = ?)) AND pictures.user_id <> ?', user, user], 
+         :conditions => ['(pictures.id NOT IN (SELECT comments.picture_id WHERE comments.user_id = ?)) AND pictures.user_id <> ?', user, user], 
          :group => 'pictures.id, pictures.link, pictures.comments_count', 
          :order => "comments_count ASC", 
          :limit => 3)
