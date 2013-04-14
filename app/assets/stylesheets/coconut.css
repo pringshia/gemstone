@@ -68,7 +68,7 @@ margin:-4px 1px 0 0;
 background-image:-webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.089)), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAPCAYAAAALWoRrAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFJSURBVHjaYvz//z8DDAQGBgoBqdVAHLF+/frXDGQCgABiQjKQmZ2dfZW4uLgTkF4N4pNrKEAAwQ1lZGRs4ufnd+bg4GAQEBCwB/K7yTUUIIAYQd4HuioQaNA6oKFwiU+fPjG8f/8+GhgMy0g1FCCAGAMCAtR5eXnPCQkJcaFLvnv37tfnz5/NgQZfIMVQgABiALpUHYg//McOvgGxAcg3pGCAAGJEjn1qAYAAYmKgAQAIIJoYChBAoIhSAdJngJgfi/x3IAZF1GVSDAUIIFCYqly+fPnC3LlzudElY2NjfxkbG5sAmSQZChBAIO/f0dXVDXd3d0eRcHBwYAAaGEeqgSAAEECwMN3q6urarKmpCeaoq6sz+Pr69gOZK8kJU4AAQk5fzB8/ftwzZcqU/8BEfwDEJzV9wjBAAKELCAHxXiAWJddAEAYIMAAKZgx95cxK8QAAAABJRU5ErkJggg==);
 background-repeat:no-repeat;
 background-position:right center;
-padding-right 35px;
+padding-right: 35px;
 width:145px;    
 }
 
