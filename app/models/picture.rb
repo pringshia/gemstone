@@ -1,6 +1,6 @@
 class Picture < ActiveRecord::Base
   has_many :comments
-  belongs_to :user, :counter_cache => true
+  belongs_to :user
   self.primary_key = :id
   attr_accessible :id, :user_id, :link, :comments_count, :unredeemed_count, :caption
   validates_presence_of :link 
