@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130414164507) do
+=======
+ActiveRecord::Schema.define(:version => 20130413013749) do
+>>>>>>> 372a6cc62f6749a410b5abca6705af34cdc2c420
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id",       :limit => 8
@@ -31,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20130414164507) do
     t.integer  "comments_count",              :default => 0
     t.string   "caption",                     :default => "Say something nice!"
   end
+
+  add_index "pictures", ["link"], :name => "index_pictures_on_link", :unique => true
 
   create_table "ratings", :force => true do |t|
     t.integer  "user_id",     :limit => 8
