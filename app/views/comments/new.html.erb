@@ -1,11 +1,13 @@
 <h3>Comment on Picture</h3>
 <br /><br />
-<%= image_tag @picture[0].link, class: 'user_picture' %>
+<% @picture.each do |pictures| %>
+<%= image_tag pictures.link, class: 'user_picture' %>
 <br /><br />
 <%= form_tag :action => 'create' do %>
 	<%= text_area :comment, :comment_text, :cols => "80", :rows =>"10" %>
-	<%= hidden_field :pic_id, :id, :value => @picture[0].id %>
+	<%= hidden_field :pic_id, :id, :value => pictures.id %>
 	<br />
 	<%= submit_tag("Create Comment") %>
+<%end%>
 <%end%>
 
