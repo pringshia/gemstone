@@ -13,7 +13,7 @@ class Picture < ActiveRecord::Base
          :conditions => ['(pictures.id NOT IN (SELECT comments.picture_id WHERE comments.user_id = ?)) AND pictures.user_id <> ?', user, user], 
          :group => 'pictures.id, pictures.link, pictures.comments_count', 
          :order => "comments_count ASC", 
-         :limit => 3)
+         :limit => 10).sample(3)
   end
   
   def unredeemed_count
