@@ -1,7 +1,7 @@
 <%= javascript_include_tag "pictures" %>
 
 
-<h3>Comment on Picture</h3>
+<h3>Step 2 of 2: Comment on a Picture</h3>
 Picture Choices:
 <div class='picture_choices'>
 <% @picture.each_with_index do |pic, index| %>
@@ -22,7 +22,7 @@ Picture Choices:
 		</div>
 		<%= hidden_field :pic_id, :id, :value => pic.id %>
 		<br />
-		<%= submit_tag("Create Comment", class: "button") %>
+		<%= submit_tag("Post", class: "button", style: 'margin-left: 10px;') %>
 		<%end%>
 		</div>		
 <%end%>

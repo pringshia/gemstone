@@ -1,17 +1,19 @@
 <h3>My Comments</h3>
 
+<div id='my_comments'>
 <table>
   <tr>
-    <th>Comment</th>
-		<th># of upvotes</th>
+    <th class='comment'>Comment</th>
+		<th>Upvotes</th>
 		<th>Total Votes</th>
   </tr>
 <% @comments.each do |comment| %>
 	<tr>
-		<td><%= comment.comment_text %></td>
+		<td class='comment'><%= comment.comment_text %></td>
 		<td><%= comment.ratings.count(:all, conditions: ["is_positive = ?", true]) %>
 		<td><%= comment.ratings.size %></td>
 	</tr>
 <% end %>
 
 </table>
+</div>

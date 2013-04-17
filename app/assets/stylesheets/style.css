@@ -249,3 +249,113 @@ img.maxsize {
 .picture_option[data-index=pic_0] {
 	display: block;
 }
+
+
+.good_button, .bad_button {
+	display: block;
+	width: 70px;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 25px;
+	text-decoration: none;
+	font-family: 'Helvetica';
+	font-weight: bold;
+	font-size: 10pt;
+	float: left;
+	margin: 5px 10px;
+	
+}
+
+.good_button {
+	background-color: #F3F3F3;
+	border: 1px solid #185618;
+	-moz-box-shadow:inset 0px 0px 1px rgba(187,187,187,1);
+	-webkit-box-shadow:inset 0px 0px 1px rgba(187,187,187,1);
+	box-shadow:inset 0px 0px 1px rgba(187,187,187,1);
+	background-image: -o-linear-gradient(0deg , rgb(20,150,20) 0%, rgb(150,250,150) 100%);
+	background-image: -moz-linear-gradient(0deg , rgb(20,150,20) 0%, rgb(150,250,150) 100%);
+	background-image: -webkit-linear-gradient(0deg , rgb(20,150,20) 0%, rgb(150,250,150) 100%);
+	background-image: -ms-linear-gradient(0deg , rgb(20,150,20) 0%, rgb(150,250,150) 100%);
+	background-image: linear-gradient(0deg , rgb(20,150,20) 0%, rgb(150,250,150) 100%);
+	color: white;
+	text-shadow: rgba(0,0,0,0.5) 0px 1px 0px;
+}
+/*Hover*/
+.good_button:hover {
+	background-color: #FFFFFF;
+	background-image: -o-linear-gradient(90deg , rgb(246,246,246) 0%, rgb(254,254,254) 100%);
+	background-image: -moz-linear-gradient(90deg , rgb(246,246,246) 0%, rgb(254,254,254) 100%);
+	background-image: -webkit-linear-gradient(90deg , rgb(246,246,246) 0%, rgb(254,254,254) 100%);
+	background-image: -ms-linear-gradient(90deg , rgb(246,246,246) 0%, rgb(254,254,254) 100%);
+	background-image: linear-gradient(0deg , rgb(50,180,50) 0%, rgb(150,250,150) 100%);
+}
+/*Active*/
+.good_button:active {
+	background-color: #F9F9F9;
+	-moz-box-shadow:inset 0px 0px 5px rgba(187,187,187,1);
+	-webkit-box-shadow:inset 0px 0px 5px rgba(187,187,187,1);
+	box-shadow:inset 0px 0px 5px rgba(187,187,187,1);
+	background-image: -o-linear-gradient(90deg , rgb(254,254,254) 0%, rgb(246,246,246) 100%);
+	background-image: -moz-linear-gradient(90deg , rgb(254,254,254) 0%, rgb(246,246,246) 100%);
+	background-image: -webkit-linear-gradient(90deg , rgb(254,254,254) 0%, rgb(246,246,246) 100%);
+	background-image: -ms-linear-gradient(90deg , rgb(254,254,254) 0%, rgb(246,246,246) 100%);
+	background-image: linear-gradient(0deg , rgb(0,130,0) 0%, rgb(50,180,50) 100%);
+	text-shadow: none;
+}
+
+/******************/
+
+.bad_button {
+	background-color: #F3F3F3;
+	border: 1px solid #561819;
+	-moz-box-shadow:inset 0px 0px 1px rgba(187,187,187,1);
+	-webkit-box-shadow:inset 0px 0px 1px rgba(187,187,187,1);
+	box-shadow:inset 0px 0px 1px rgba(187,187,187,1);
+	background-image: -o-linear-gradient(0deg , rgb(150,20,20) 0%, rgb(250,150,150) 100%);
+	background-image: -moz-linear-gradient(0deg , rgb(150,20,20) 0%, rgb(250,150,150) 100%);
+	background-image: -webkit-linear-gradient(0deg , rgb(150,20,20) 0%, rgb(250,150,150) 100%);
+	background-image: -ms-linear-gradient(0deg , rgb(150,20,20) 0%, rgb(250,150,150) 100%);
+	background-image: linear-gradient(0deg , rgb(150,20,20) 0%, rgb(250,150,150) 100%);
+	color: white;
+	text-shadow: rgba(0,0,0,0.5) 0px 1px 0px;
+}
+/*Hover*/
+.bad_button:hover {
+	background-color: #FFFFFF;
+	background-image: -o-linear-gradient(0deg , rgb(180,50,50) 0%, rgb(250,150,150) 100%);
+	background-image: -moz-linear-gradient(0deg , rgb(180,50,50) 0%, rgb(250,150,150) 100%);
+	background-image: -webkit-linear-gradient(0deg , rgb(180,50,50) 0%, rgb(250,150,150) 100%);
+	background-image: -ms-linear-gradient(0deg , rgb(180,50,50) 0%, rgb(250,150,150) 100%);
+	background-image: linear-gradient(0deg , rgb(180,50,50) 0%, rgb(250,150,150) 100%);
+}
+/*Active*/
+.bad_button:active {
+	background-color: #F9F9F9;
+	-moz-box-shadow:inset 0px 0px 5px rgba(187,187,187,1);
+	-webkit-box-shadow:inset 0px 0px 5px rgba(0,0,0,1);
+	box-shadow:inset 0px 0px 5px rgba(187,187,187,1);
+	background-image: -o-linear-gradient(0deg , rgb(130,0,0) 0%, rgb(180,50,50) 100%);
+	background-image: -moz-linear-gradient(0deg , rgb(130,0,0) 0%, rgb(180,50,50) 100%);
+	background-image: -webkit-linear-gradient(0deg , rgb(130,0,0) 0%, rgb(180,50,50) 100%);
+	background-image: -ms-linear-gradient(0deg , rgb(130,0,0) 0%, rgb(180,50,50) 100%);
+	background-image: linear-gradient(0deg , rgb(130,0,0) 0%, rgb(180,50,50) 100%);
+	text-shadow: none;
+}
+
+#my_comments th, #my_comments td {
+	width: 80px;
+	text-align: center;
+}
+#my_comments .comment {
+	width: 250px;
+	text-align: left;
+	padding: 5px;
+}
+#my_comments tr {
+	border-bottom: 1px solid #ccc;
+}
+#my_comments th {
+	background: black;
+	color: white;
+	padding: 5px;
+}
