@@ -23,9 +23,14 @@ class RatingsController < ApplicationController
     @rating = Rating.new(params[:rating])
     user = User.find(session[:user_id])
     comment = Comment.find(params[:com_id][:id])
-    comment.ratings << @rating
-    user.ratings << @rating
-    User.update_tokens @rating
+    
+    if Rating.find(:all, :conditions => ['user_id = ? AND comment_id = ?', session[:user_id], params[:com_id][:id]]).empty?
+      
+      comment.ratings << @rating
+      user.ratings << @rating
+      User.update_tokens @rating
+      
+    end
 
     respond_to do |format|
       if @rating.save
@@ -36,5 +41,7 @@ class RatingsController < ApplicationController
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end
+    
   end
+  
 end

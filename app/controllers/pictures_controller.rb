@@ -55,7 +55,7 @@ class PicturesController < ApplicationController
   def retrieve
     @picture = Picture.find(params[:id])
     @user = User.find(session[:user_id])
-    if @user.tokens > 0
+    if @user.tokens > 0 && @picture.unredeemed_count > 0
       @user.decrement!(:tokens)
       Comment.redeem_comment @picture
     end

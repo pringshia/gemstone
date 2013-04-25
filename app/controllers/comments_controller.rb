@@ -25,8 +25,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     user = User.find(session[:user_id])
     picture = Picture.find(params[:pic_id][:id])
-    picture.comments << @comment
-    user.comments << @comment
+    
+    if Comment.find(:all, :conditions => ['user_id = ? AND picture_id = ?', session[:user_id], params[:pic_id][:id]]).empty?    
+      picture.comments << @comment
+      user.comments << @comment
+    end
 
     respond_to do |format|
       if @comment.save
