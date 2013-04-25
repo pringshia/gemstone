@@ -30,6 +30,13 @@ class RatingsController < ApplicationController
       user.ratings << @rating
       User.update_tokens @rating
       
+      if @rating.is_positive
+        
+        comment.increment!(:net_ratings)
+        
+      else
+        comment.decrement!(:net_ratings)
+      end
     end
 
     respond_to do |format|

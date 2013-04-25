@@ -1,6 +1,7 @@
 <%= image_tag @picture.link, class: 'user_picture' %>
+<%= @picture.caption %>
 
-<div id='picture_comments'>
+<div id='picture_comments'>	
 	
 <% if @picture.comments_count == 0 %>
 	<span class='none'>Hey hot stuff, you have no compliments yet. Please check back later.</span>
@@ -24,5 +25,13 @@
 You have <%= @picture.unredeemed_count %> unredeemed comments and <%= @user.tokens %> tokens
 
 <% end %>
+
+<br />
+<%= form_tag :action => 'caption' do %>
+	<%= hidden_field :pic_id, :id, :value => @picture.id %>
+	<%= text_area :caption, :caption_text %>
+	<%= submit_tag("Update Caption", class: 'button') %>
+<%end%>
+
 
 </div>

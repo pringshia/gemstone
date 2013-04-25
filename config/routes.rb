@@ -11,6 +11,7 @@ Gemstone::Application.routes.draw do
   resources :ratings
 
   match 'pictures/:id/retrieve' => 'pictures#retrieve', :as => :retrieve
+  match 'pictures/:id/caption' => 'pictures#caption', :as => :caption
   
   root to: 'users#index'
 

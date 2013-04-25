@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414164507) do
+ActiveRecord::Schema.define(:version => 20130425024230) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id",       :limit => 8
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130414164507) do
     t.datetime "updated_at",                                    :null => false
     t.boolean  "redeemed",                   :default => false
     t.integer  "ratings_count",              :default => 0
+    t.integer  "net_ratings",                :default => 0
   end
 
   create_table "pictures", :force => true do |t|

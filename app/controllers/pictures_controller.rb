@@ -62,6 +62,12 @@ class PicturesController < ApplicationController
     redirect_to :controller => "pictures", :action => "show", :id => params[:id]
   end
 
+  def caption
+    @picture = Picture.find(params[:pic_id][:id])
+    @picture.update_attribute("caption", params[:caption][:caption_text])
+    redirect_to :controller => "pictures", :action => "show", :id => params[:pic_id][:id]
+  end
+
   def destroy
     @picture = Picture.find(params[:id])
     @picture.comments.clear
