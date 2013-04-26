@@ -17,7 +17,7 @@ class Picture < ActiveRecord::Base
   end
   
   def unredeemed_count
-    Comment.count(conditions: ["picture_id = ? AND redeemed = ?", self.id, false])
+    Comment.count(conditions: ["picture_id = ? AND redeemed = ? AND net_ratings > -1", self.id, false])
   end
   
 end
