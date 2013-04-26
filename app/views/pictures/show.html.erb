@@ -1,5 +1,7 @@
-<%= image_tag @picture.link, class: 'user_picture' %>
-<%= @picture.caption %>
+<div class='user_picture'>
+	<%= image_tag @picture.link %>
+	<div><span class='editable'><%= @picture.caption %></span></div>	
+</div>
 
 <div id='picture_comments'>	
 	
@@ -27,11 +29,27 @@ You have <%= @picture.unredeemed_count %> unredeemed comments and <%= @user.toke
 <% end %>
 
 <br />
-<%= form_tag :action => 'caption' do %>
-	<%= hidden_field :pic_id, :id, :value => @picture.id %>
-	<%= text_area :caption, :caption_text %>
-	<%= submit_tag("Update Caption", class: 'button') %>
-<%end%>
 
+<div id='hidden_form' style='display:none;'>
+<%= form_tag :action => "caption" do %>
+	<%= hidden_field :pic_id, :id, :value => @picture.id %>
+	<%= text_area :caption, :caption_text, id: "caption_val" %>
+<%end%>
+<div>
+
+<script>
+
+$(function() {
+	$('.editable').inlineEdit({
+		buttonText: 'Save',
+		control: 'textarea',
+		save: function(e, data) {
+			$('#hidden_form').find('#caption_val').val(data.value);
+			$('#hidden_form').find('form').submit();
+		}
+	});
+});
+
+</script>
 
 </div>

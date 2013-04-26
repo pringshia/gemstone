@@ -152,7 +152,31 @@ h3 {
 	float: left;
 	margin-right: 20px;
 	margin-bottom: 20px;
+}
+
+.user_picture img {	
 	max-width: 400px;
+	display: block;
+}
+.user_picture div {
+	border-left: 5px solid #ccc;
+	padding: 10px 0 10px 10px;
+	font-style: italic;
+	width: 300px;
+	
+}
+.user_picture span {
+}
+
+.ui-state-hover {
+	border-bottom: 1px dotted black;
+	background-color: #ffC;
+	cursor: text
+}
+
+.user_picture input {
+	font-size: 12px;
+	width: 260px;
 }
 
 img.maxsize {
