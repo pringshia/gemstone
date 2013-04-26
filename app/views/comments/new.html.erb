@@ -14,7 +14,9 @@ Picture Choices:
 <% @picture.each_with_index do |pic, index| %>
 	<% data = 'pic_'+index.to_s %>
 	<div class='picture_option' data-index='<%= data %>' >
-		<%= image_tag pic.link, class: 'user_picture' %>	
+		<%= image_tag pic.link, class: 'user_picture' %>
+		<div class='caption'><span class='editable'><%= pic.caption %></span></div>
+		<br />
 		<%= form_tag :action => 'create' do %>
 		<div class='chatbubble'>
 			Leave a compliment:
@@ -26,5 +28,5 @@ Picture Choices:
 		<%end%>
 		</div>		
 <%end%>
-
+<br />
 
