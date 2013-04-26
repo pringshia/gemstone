@@ -169,6 +169,7 @@ div.caption {
 	padding: 10px 0 10px 10px;
 	font-style: italic;
 	width: 300px;
+	font-size: 16px;
 	
 }
 
@@ -178,8 +179,9 @@ div.caption {
 	cursor: text
 }
 
-.user_picture input {
-	font-size: 12px;
+.user_picture textarea {
+	font: 12px/1.6 "Lucida Grande", "Lucida Sans Unicode", Lucida, Verdana;
+	font-style: italic;
 	width: 260px;
 }
 
