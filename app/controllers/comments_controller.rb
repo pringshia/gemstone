@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   end
 
   def mine
-      @comments = Comment.where("user_id = ?", session[:user_id]).order("ratings_count DESC")
+      @comments = Comment.where("user_id = ?", session[:user_id]).order("created_at DESC")
       render "mine" 
   end
 

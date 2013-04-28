@@ -13,7 +13,7 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find(params[:id])
     @user = User.find(session[:user_id])
-    @comments = Comment.find(:all, :conditions => ["picture_id = ? AND redeemed = ?", params[:id], true], :order => "comments.created_at ASC")
+    @comments = Comment.find(:all, :conditions => ["picture_id = ? AND redeemed = ?", params[:id], true], :order => "comments.updated_at ASC")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
