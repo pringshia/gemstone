@@ -194,7 +194,9 @@ img.maxsize {
 	float: left;
 }
 
-
+a {
+	color: gray;
+}
 
 #pics li.album {
 	margin: 10px;
@@ -388,4 +390,9 @@ img.maxsize {
 	background: black;
 	color: white;
 	padding: 5px;
+}
+
+.picture_info {
+	margin: 5px 0 0 0px;
+	text-align: center;
 }

@@ -9,25 +9,28 @@
 	<span class='none'>Hey hot stuff, you have no compliments yet. Please check back later.</span>
 <% else %>
 
-<% unless @comments.empty? %>
+	<% unless @comments.empty? %>
 
-<% @comments.each do |comment| %>
-    <div class='chatbubble'><%= comment.comment_text %></div>
+		<% @comments.each do |comment| %>
+    	<div class='chatbubble'><%= comment.comment_text %></div>
+		<% end %>
+
+	<% end %>
+
+	<% if @picture.unredeemed_count > 0 && @user.tokens > 0%>
+		<%= form_tag :action => 'retrieve' do %>
+		<%= hidden_field :pic_id, :id, :value => @picture.id %>
+		<%= submit_tag("Redeem Comment ("+@picture.unredeemed_count.to_s+")", class: 'button') %>
+		<%end%>
+	<%end%>
+	<p class='picture_info'>
+	<% if @picture.unredeemed_count == 0 %>
+		You have no more comments on this picture. Check back later!
+	<% elsif @user.tokens == 0 %>
+		You have <%= @picture.unredeemed_count %> comment(s) waiting for you, but no tokens! <%= link_to("Get some tokens now!", new_rating_path) %>
+	<% end %>
+	</p>
 <% end %>
-
-<% end %>
-
-<% if @picture.unredeemed_count > 0 && @user.tokens > 0%>
-<%= form_tag :action => 'retrieve' do %>
-	<%= hidden_field :pic_id, :id, :value => @picture.id %>
-	<%= submit_tag("Redeem Comment", class: 'button') %>
-<%end%>
-<%end%>
-<br />
-You have <%= @picture.unredeemed_count %> unredeemed comments and <%= @user.tokens %> tokens
-
-<% end %>
-
 <br />
 
 <div id='hidden_form' style='display:none;'>

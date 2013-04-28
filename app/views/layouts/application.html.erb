@@ -7,7 +7,7 @@
 	<meta name="keywords" content="">
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />	
 
-  <title>Gemstone</title>
+  <title>Boost My Self Esteem!</title>
   <!-- <%= stylesheet_link_tag    "application", :media => "all" %> -->
 	<%= stylesheet_link_tag "reset" %>
 	<%= stylesheet_link_tag "style" %>
@@ -119,9 +119,13 @@ background-image: radial-gradient(circle farthest-corner at center, #F2FCD6 0%, 
 	text-align: center;
 }
 
-#splash .content p {
+#splash .content p.blurb {
 	padding-top: 160px;
 	font: 18px Helvetica, Tahoma, sans;
+}
+
+p.fineprint {
+	font-size: 10px;
 }
 
 #splash .content a {
@@ -289,8 +293,10 @@ background-image: radial-gradient(circle farthest-corner at center, #F2FCD6 0%, 
 		<div id='message'>
 			<h1 class='bounceIn animated'>Boost My Self-Esteem</h1>
 			<div class='content fadeInUp animated delay'>
-				<p>We can't see you in our mirror!<br />Who are you?</p>
+				<p class='blurb''>We can't see you in our mirror!<br />Who are you?</p>
 				<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+				<p class='fineprint'><strong>Note</strong>: Your privacy is our number one concern.<br />
+				Your name will not be shared anywhere.</p>
 			</div>
 		</div>
 	</div>
