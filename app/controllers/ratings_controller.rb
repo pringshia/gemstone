@@ -32,10 +32,10 @@ class RatingsController < ApplicationController
       
       if @rating.is_positive
         
-        comment.increment!(:net_ratings)
+        Comment.increment_counter(:net_ratings, comment.id)
         
       else
-        comment.decrement!(:net_ratings)
+        Comment.decrement_counter(:net_ratings, comment.id)
       end
     end
 
